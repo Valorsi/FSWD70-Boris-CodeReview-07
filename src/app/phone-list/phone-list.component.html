@@ -1,0 +1,26 @@
+
+<div class="container-fluid m-5">
+<form class="form-inline">
+        <input name="searchInput" class="form-control"  placeholder="Search" #searchInput="ngModel"  [(ngModel)]="searchText" style="width: 80%;">
+        <button class="btn btn-outline-primary"  (click)="searchText=''">x</button>
+</form>
+<table class="table table-sm bg-warning mt-3">
+	<thead>
+		<th>First name</th>
+		<th>Last name</th>
+		<th> Mobile</th>
+		<th></th>
+	</thead>
+	<ng-container *ngFor="let phonebook of phonebookArray">
+		<tr class="table table-striped bg-warning" *ngIf = "filterCondition(phonebook)">
+			<td>{{phonebook.firstName}}</td>
+			<td>{{phonebook.lastName}}</td>
+			<td>{{phonebook.number}}</td>
+			<td> <button class="btn btn-success" (click)="phonebookService.populateForm(phonebook)">Edit </button>
+				<button class="btn btn-danger" (click)="onDelete(phonebook.$key)"> Delete</button>
+			</td>
+		</tr>
+	</ng-container>
+	<div class="alert alert-danger" *ngIf="showDeletedMessage" >Deleted successfully</div>
+</table>
+</div>

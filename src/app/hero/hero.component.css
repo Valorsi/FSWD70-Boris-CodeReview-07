@@ -1,0 +1,9 @@
+.jumbotron {
+	background-image: url("/assets/img/PhoneBooth.jpg");
+	background-position: 10% 60%;
+}
+
+h1, p {
+	
+	text-shadow: 1px 1px 1px 1px black
+}
